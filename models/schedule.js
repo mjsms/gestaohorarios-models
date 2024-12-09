@@ -3,11 +3,11 @@ module.exports = (sequelize, DataTypes) => {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         versionId: { type: DataTypes.INTEGER, allowNull: false },
         shiftId: { type: DataTypes.INTEGER, allowNull: false },
-        classRoomId: { type: DataTypes.INTEGER, allowNull: false },
+        classRoomId: { type: DataTypes.INTEGER, allowNull: true },
         weekdayId: { type: DataTypes.INTEGER, allowNull: false },
         startTime: { type: DataTypes.TIME, allowNull: false },
         endTime: { type: DataTypes.TIME, allowNull: false },
-        date: { type: DataTypes.DATE, allowNull: false }
+        date: { type: DataTypes.DATE, allowNull: true }
     }, { tableName: 'Schedule', timestamps: false });
 
     Schedule.associate = models => {
