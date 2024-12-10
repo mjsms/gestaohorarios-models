@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
 
     ClassGroup.associate = models => {
         ClassGroup.hasMany(models.Shift, { foreignKey: 'classGroupId', as: 'shifts' });
+        ClassGroup.hasMany(models.Student, { foreignKey: 'classGroupId', as: 'students' });
     };
 
     return ClassGroup;

@@ -1,40 +1,23 @@
 module.exports = (sequelize, DataTypes) => {
     const Student = sequelize.define('Student', {
-        id: {
+        number: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
-        },
-        classGroupId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        studentNumber: {
-            type: DataTypes.INTEGER,
             allowNull: false,
-            unique: true
+            unique: true,
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         email: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                isEmail: true // Validate email format
-            }
-        }
-    }, {
-        tableName: 'Student',
-        timestamps: false // Disable createdAt and updatedAt timestamps
-    });
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+    },{ tableName: 'Student', timestamps: false });
 
-    Student.associate = models => {
-        Student.belongsTo(models.ClassGroup, {
-            foreignKey: 'classGroupId',
-            as: 'classGroup'
-        });
+        Student.associate = models => {
+        Student.belongsTo(models.ClassGroup, { foreignKey: 'StudentId', as: 'group' });
     };
 
     return Student;
