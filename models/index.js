@@ -25,7 +25,7 @@ Object.keys(db).forEach(modelName => {
 (async () => {
     try {
         await sequelize.sync({ alter: true }); // Use `alter: true` ou `force: true` conforme necessário
-        console.log('Database synchronized.');
+        console.log('Database synchronized. - Alter');
     } catch (err) {
         console.error('Error during database synchronization:', err);
     }
