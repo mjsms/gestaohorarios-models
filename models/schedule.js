@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         Schedule.belongsTo(models.Weekday, { foreignKey: 'weekdayId', as: 'weekday' });
         Schedule.hasMany(models.QualityIssue, { foreignKey: 'scheduleId', as: 'qualityIssues' });
         Schedule.hasMany(models.ScheduleFeature, { foreignKey: 'scheduleId', as: 'features' });
+        Schedule.hasMany(models.ScheduleAttendance, { foreignKey: 'scheduleId', as: 'attendances' });
     };
 
     return Schedule;
