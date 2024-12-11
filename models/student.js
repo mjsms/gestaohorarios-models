@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     },{ tableName: 'Student', timestamps: false });
 
         Student.associate = models => {
-        Student.belongsTo(models.ClassGroup, { foreignKey: 'StudentId', as: 'group' });
+        Student.belongsTo(models.ClassGroup, { foreignKey: 'classGroupId', as: 'classGroup' });
     };
 
     return Student;
