@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
     up: async (queryInterface) => {
-        const hashedPassword = await bcrypt.hash('admin123', 10); // Substitua pelo password desejado
+        const hashedPassword = await bcrypt.hash('admin123', 10);
         await queryInterface.bulkInsert('Users', [
             {
                 username: 'admin',

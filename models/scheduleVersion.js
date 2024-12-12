@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         description: { type: DataTypes.STRING, allowNull: true },
         isCurrent: { type: DataTypes.BOOLEAN, allowNull: false },
         status: { 
-            type: DataTypes.ENUM('pending', 'imported', 'processed'), 
+            type: DataTypes.ENUM('pending', 'imported', 'processed','error'), 
             allowNull: false 
         },
         createdAt: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
