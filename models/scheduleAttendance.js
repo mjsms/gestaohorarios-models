@@ -3,6 +3,11 @@ module.exports = (sequelize, DataTypes) => {
         isAttending: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
+        },
+
+        attended: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
 
     },{ tableName: 'ScheduleAttendance', timestamps: false });

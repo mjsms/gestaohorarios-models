@@ -1,8 +1,23 @@
 module.exports = (sequelize, DataTypes) => {
     const ClassRoom = sequelize.define('ClassRoom', {
-        id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-        name: { type: DataTypes.STRING, allowNull: false },
-        capacity: { type: DataTypes.INTEGER, allowNull: false }
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true, autoIncrement: true
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+
+        capacity: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+
+        qrCode : {
+            type: DataTypes.TEXT,
+            defaultValue: null
+        }
     }, { tableName: 'ClassRoom', timestamps: false });
 
     ClassRoom.associate = models => {
