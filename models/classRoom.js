@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-
         qrCode : {
             type: DataTypes.TEXT,
             defaultValue: null
