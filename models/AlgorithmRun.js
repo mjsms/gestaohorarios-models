@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     hv:         DataTypes.FLOAT,
     started_at: DataTypes.DATE,
     finished_at:DataTypes.DATE
-  }, { tableName: 'algorithm_runs', underscored: true });
+  }, { tableName: 'AlgorithmRun', underscored: true });
 
   AlgorithmRun.associate = models => {
     AlgorithmRun.hasMany(models.Solution, { as: 'solutions', foreignKey: 'run_id' });

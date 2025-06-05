@@ -1,15 +1,17 @@
-// models/allocation.js
 module.exports = (sequelize, DataTypes) => {
   const Allocation = sequelize.define('Allocation', {
-    id:          { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    id         : { type: DataTypes.UUID, primaryKey: true, defaultValue: DataTypes.UUIDV4 },
     solution_id: { type: DataTypes.UUID, allowNull: false },
-    class_id:    DataTypes.INTEGER,
-    slot_id:     DataTypes.INTEGER,
-    room_id:     DataTypes.INTEGER
-  }, { tableName: 'allocations', underscored: true });
+    class_id   : { type: DataTypes.INTEGER, allowNull: false },
+    slot_id    : { type: DataTypes.INTEGER, allowNull: false },
+    room_id    : { type: DataTypes.INTEGER, allowNull: false }
+  }, {
+    tableName: 'Allocation'
+  });
 
   Allocation.associate = models => {
     Allocation.belongsTo(models.Solution, { foreignKey: 'solution_id', as: 'solution' });
   };
+
   return Allocation;
 };
